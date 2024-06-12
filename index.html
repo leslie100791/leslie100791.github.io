@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<title>哈哈疫苗網</title>
+		<meta charset="utf-8">
+		<link rel="icon" href="vaccine.ico" type="image/x-icon" />
+		<script>
+			function subscribe()
+			{
+				alert("已成功訂閱最新消息~");
+			}
+		</script>
+		<style>
+			.header
+			{
+				width:100%;
+				height:90px;
+				top:0;
+				left:0;
+				right:0;
+				position:fixed;
+  				z-index:1;
+				background-color:#9A9A9A;
+				display:flex;
+				flex-direction:row;	 
+			}
+			.header img
+			{
+				margin-left:50px;
+			}
+			.button ul
+			{
+				font-size:30px;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				list-style:none;
+				margin-left:550px;
+				display:flex;
+				flex-direction: row;
+			}
+			.button a
+			{
+				color:#585858;
+				text-decoration: none;
+				margin-right:20px;
+				margin-left:20px;	 
+			}
+			.button ul li a:hover
+			{
+				color:#FFE557; 
+			}
+			.container
+			{
+				width:100%;
+				max-width: 1300px;
+				margin:auto;
+				margin-top: 120px;
+			}
+			iframe
+			{
+				width:100%;
+				height:650px;
+				margin-top:30px
+			}
+			.news
+			{
+				margin-top:30px;
+				background-color:#FFFFFF;
+				display: grid;
+  				grid-template-columns: repeat(4, 1fr);
+  				grid-gap:55px;
+			}
+			.news-new
+			{
+				width:280px;
+				height:220px;
+			}
+			.subscribe-container
+			{
+				width:100%;
+				height:200px;
+				margin-top:100px;
+				background-color:#E1E1E1;
+				position:relative;
+				display: flex;
+			}
+			.subscribe-text
+			{
+				width:500px;
+				height:100px;
+				top:50px;
+				left:150px;
+				background-color:#E1E1E1;
+				position:absolute;
+			}
+			.subscribe-text h2
+			{
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				color:#000;
+			}
+			.subscribe-text p
+			{
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				color:#000;
+			}
+			.subscribe-input
+			{
+				width:500px;
+				height:50px;
+				top:70px;
+				right:150px;
+				position:absolute;
+				display:flex;
+				flex-direction: row;
+			}
+			.subscribe-input input
+			{
+				width: 500px;
+				height: 50px;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				font-size: 25px;
+				text-align: center;
+				border:hidden;
+			}
+			.subscribe-js
+			{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				color: #000;
+				background-color:#A4A4A4;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				margin-left: 10px;
+				display: block;
+				cursor: pointer;
+				transition: all .3s linear;
+			}
+			.subscribe-js:hover
+			{
+    			background-color: #000;
+    			color: #fff;
+			}
+			.subscribe-facebook
+			{
+				width:500px;
+				height:35px;
+				margin-left: 60%;
+				margin-top: 7%;
+				z-index: 2;
+			}
+			.subscribe-facebook iframe
+			{
+				width:500px;
+				height:35px;
+			}
+			.footer
+			{
+				width:100%;
+				height:200px;
+				background-color:#F2F2F2;
+				position:relative;
+				display:flex;
+				flex-direction:row;
+			}
+			.footer img
+			{
+				margin-top:20px;
+				margin-left:20px;
+			}
+			.footer-text
+			{
+				width:800px;
+				height:150px;
+				top:20px;
+				left:400px;
+				background-color:#F2F2F2;
+				position:absolute;			
+			}
+			.footer-text p
+			{
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				color:#000;
+			}
+		</style>
+	</head>
+
+	<body>
+	<div class="header">
+		<a href="index.html">
+			<img src="logo.png" alt="HTML5 Icon" width="auto" height="90px">
+		</a>
+		<div class="button">
+			<ul>
+				<li><a href="vaccine_type.html">疫苗種類</a></li>
+				<li><a href="side_effects.html">副作用</a></li>
+				<li><a href="amount.html">施打人數</a></li>
+				<li><a href="location.html">施打地點</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<iframe src="https://www.youtube.com/embed/PhVlKD_ath8" 
+				title="YouTube video player" 
+				frameborder="0" 				
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 	
+				allowfullscreen>
+		</iframe>
+		<div class="news">
+			<div class="news-new">
+				<a href="https://edition.cnn.com/interactive/2021/health/global-covid-vaccinations/" 		
+				   target="_blank">
+					<img src="cnn.png" alt="CNN" width="auto" height="auto">
+				</a>
+			</div>
+			<div class="news-new">
+				<a href="https://www.bbc.com/news/topics/cdl8n2ede1zt/vaccination" 
+				   target="_blank">
+					<img src="bbc.jpg" alt="BBC" width="auto" height="auto">
+				</a>
+			</div>
+			<div class="news-new">
+				<a href="https://www.ettoday.net/news_search/doSearch.php?keywords=%E7%96%AB%E8%8B%97&idx=2"
+				   target="_blank">
+					<img src="ettoday.png" alt="ETTODAY" width="auto" height="auto">
+				</a>
+			</div>
+			<div class="news-new">
+				<a href="https://today.line.me/tw/v2/tag/RaZRWW?tag=%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A8%AE"
+				   target="_blank">
+					<img src="line.jpg" alt="LINE" width="auto" height="auto">
+				</a>
+				
+			</div>
+		</div>
+	</div>
+	<div class="subscribe-container">
+		<div class="subscribe-text">
+			<h2>訂閱最新消息</h2>
+			<p>我想要收到第一手的疫苗情報</p>
+		</div>
+		<div class="subscribe-input">
+			<input type="text" name="輸入你的信箱">
+			<div class="subscribe-js" onclick="subscribe()">確認</div>
+		</div>
+		<div class="subscribe-facebook">
+			<iframe src="https://www.facebook.com/plugins/like.php?
+						 href=http%3A%2F%2Falgo.nttu.edu.tw%2F1101ITWWW%2F11011129%2Findex.html
+						 &width=450&layout=standard&action=like&size=large&share=true&height=35&appId" 
+					style="border:none;overflow:hidden" 
+					scrolling="no" 
+					frameborder="0" 
+					allowfullscreen="true" 
+					allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+			</iframe>
+		</div>
+	</div>
+	<div class="footer">
+		<img src="bottomlogo.png" alt="bottomlogo" width="auto" height="160px">
+		<div class="footer-text">
+			<p> 哈哈你找不到我地址:台東大學知本學院<br><br>
+				哈哈你打不通我電話:089318855<br><br>
+				系統問題聯絡電話：089318855<br><br>
+				系統問題聯絡信箱：110111XX@gm.nttu.edu.tw
+			</p>
+		</div>
+	</div>
+	</body>
+</html>

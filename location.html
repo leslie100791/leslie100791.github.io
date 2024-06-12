@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<title>施打地點</title>
+		<meta charset="utf-8">
+		<link rel="icon" href="vaccine.ico" type="image/x-icon" />
+		<script>
+			function subscribe()
+			{
+				alert("已成功訂閱最新消息~");
+			}
+		</script>
+		<style>
+			.header
+			{
+				width:100%;
+				height:90px;
+				top:0;
+				left:0;
+				right:0;
+				position:fixed;
+  				z-index:2;
+				background-color:#9A9A9A;
+				display:flex;
+				flex-direction:row;	 
+			}
+			.header img
+			{
+				margin-left:50px;
+			}
+			.button ul
+			{
+				font-size:30px;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				list-style:none;
+				margin-left:550px;
+				display:flex;
+				flex-direction: row;
+			}
+			.button a
+			{
+				color:#585858;
+				text-decoration: none;
+				margin-right:20px;
+				margin-left:20px;	 
+			}
+			.button ul li a:hover
+			{
+				color:#FFE557; 
+			}
+			.container
+			{
+				width:100%;
+				max-width: 1350px;
+				margin:auto;
+				margin-top: 120px;
+				align: center;
+			}
+			.go_vaccine
+			{
+				width: 100%;
+				height: 60px;
+				display: block;
+				text-align: center;
+				cursor: pointer;
+				color: #000;
+				background-color: transparent;
+				border: 3px solid #000;
+				position: relative;
+				transition: all .3s linear;
+				line-height: 3px;
+			}
+			.go_vaccine p
+			{
+				font-size: 30px;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+			}
+			.go_vaccine > p
+			{
+				position: relative;
+				z-index: 1;
+			}
+			.go_vaccine::before
+			{
+				width: 0%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				transition: all .3s ease;
+				background-color: #000;
+				content: "";
+				display: block;
+				position: absolute;
+			}
+			.go_vaccine:hover
+			{
+				color: #fff;
+			}
+			.go_vaccine:hover::before
+			{
+				width: 100%;
+			}
+			a
+			{
+				text-decoration: none;
+			}
+			table.table 
+			{
+				width: 100%;
+				height: 600px;
+				background-color: #EEEEEE;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				text-align: left;
+				font-size:20px;
+				border-collapse: collapse;
+			}
+			table.table th
+			{
+				width:250px;
+				height:50px;
+				font-size:25px;
+				text-align: center;
+				border: 3px solid #AAAAAA;
+				background-color: #6D6D6D;
+			}
+			table.table td
+			{
+				height:100px;
+				border: 3px solid #AAAAAA;
+				text-align: center;
+			}
+			table.table td a
+			{
+				color:black; 
+			}
+			table.table td a:hover
+			{
+				color:#B0B0B0; 
+			}
+			.subscribe-container
+			{
+				width:100%;
+				height:200px;
+				margin-top:100px;
+				background-color:#E1E1E1;
+				position:relative;
+				display: flex;
+			}
+			.subscribe-text
+			{
+				width:500px;
+				height:100px;
+				top:50px;
+				left:150px;
+				background-color:#E1E1E1;
+				position:absolute;
+			}
+			.subscribe-text h2
+			{
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				color:#000;
+			}
+			.subscribe-text p
+			{
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				color:#000;
+			}
+			.subscribe-input
+			{
+				width:500px;
+				height:50px;
+				top:70px;
+				right:150px;
+				position:absolute;
+				display:flex;
+				flex-direction: row;
+			}
+			.subscribe-input input
+			{
+				width: 500px;
+				height: 50px;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				font-size: 25px;
+				text-align: center;
+				border:hidden;
+			}
+			.subscribe-js
+			{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				color: #000;
+				background-color:#A4A4A4;
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				margin-left: 10px;
+				display: block;
+				cursor: pointer;
+				transition: all .3s linear;
+			}
+			.subscribe-js:hover
+			{
+    			background-color: #000;
+    			color: #fff;
+			}
+			.subscribe-facebook
+			{
+				width:500px;
+				height:35px;
+				margin-left: 60%;
+				margin-top: 9%;
+				z-index: 2;
+			}
+			.subscribe-facebook iframe
+			{
+				width:500px;
+				height:35px;
+			}
+			.footer
+			{
+				width:100%;
+				height:200px;
+				background-color:#F2F2F2;
+				position:relative;
+				display:flex;
+				flex-direction:row;
+			}
+			.footer img
+			{
+				margin-top:20px;
+				margin-left:20px;
+			}
+			.footer-text
+			{
+				width:800px;
+				height:150px;
+				top:20px;
+				left:400px;
+				background-color:#F2F2F2;
+				position:absolute;			
+			}
+			.footer-text p
+			{
+				font-family: Microsoft JhengHei;
+				font-weight:bold;
+				color:#000;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="header">
+		<a href="index.html">
+			<img src="logo.png" alt="HTML5 Icon" width="auto" height="90px">
+		</a>
+		<div class="button">
+			<ul>
+				<li><a href="vaccine_type.html">疫苗種類</a></li>
+				<li><a href="side_effects.html">副作用</a></li>
+				<li><a href="amount.html">施打人數</a></li>
+				<li><a href="location.html">施打地點</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<a href="https://1922.gov.tw/" target="_blank">
+			<div class="go_vaccine">
+				<p>還不快點擊申請公費疫苗!!</p>
+			</div>
+		</a>
+		<br>
+		<table class="table" align="center">
+			<thead>
+				<tr>
+					<th>醫院名稱</th>
+					<th>掛號科別</th>
+					<th>洽詢電話</th>
+					<th>地址</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="https://www.tait.mohw.gov.tw/" target="_blank">衛生福利部台東醫院</a></td>
+					<td>
+						<table>
+							<tbody>
+								<tr>
+									<p>家庭醫學科</p>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td>(089)324-112</td>
+					<td>台東縣台東市五權街1號</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.tait.mohw.gov.tw/" target="_blank">衛生福利部台東醫院</a></td>
+					<td>COVID-19 疫苗專診 (不分科)</td>
+					<td>089-324112#1153、1155</td>
+					<td>台東縣台東市五權街1號</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="http://ttw3.mmh.org.tw/" target="_blank">台灣基督長老教會馬偕醫療財團法人<br>
+							台東馬偕紀念醫院</a>
+					</td>
+					<td>COVID-19 疫苗門診</td>
+					<td>089-310195</td>
+					<td>台東縣台東市長沙街303巷1號</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.tch.org.tw/TchWeb/" target="_blank">東基醫療財團法人台東基督教醫院</a></td>
+					<td>其他科-新冠疫苗</td>
+					<td>
+						<table>
+							<tbody>
+								<tr>
+									<p>089-342910</p>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				<td>台東縣台東市開封街350號</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.tait.mohw.gov.tw/ck/index.php" target="_blank">衛生福利部台東醫院成功分院</a></td>
+					<td>家醫科</td>
+					<td>
+						<table>
+							<tbody>
+								<tr>
+									<p>089854748#202</p>
+									<p>0987-123459</p>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td>台東縣成功鎮中山東路32號</td>
+				</tr>
+				<tr>
+					<td><a href="http://kuanshan.tzuchi.com.tw/" target="_blank">佛教慈濟醫療財團法人關山慈濟醫院</a></td>
+					<td>一般內科</td>
+					<td>089-814880#308</td>
+					<td>台東縣關山鎮和平路125-5號</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>		
+	<div class="subscribe-container">
+		<div class="subscribe-text">
+			<h2>訂閱最新消息</h2>
+			<p>我想要收到第一手的疫苗情報</p>
+		</div>
+		<div class="subscribe-input">
+			<input type="text" name="輸入你的信箱" >
+			<div class="subscribe-js" onclick="subscribe()">確認</div>
+		</div>
+		<div class="subscribe-facebook">
+			<iframe src="https://www.facebook.com/plugins/like.php?
+						 href=http%3A%2F%2Falgo.nttu.edu.tw%2F1101ITWWW%2F11011129%2Findex.html
+						 &width=450&layout=standard&action=like&size=large&share=true&height=35&appId" 
+					style="border:none;overflow:hidden" 
+					scrolling="no" 
+					frameborder="0" 
+					allowfullscreen="true" 
+					allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+			</iframe>
+		</div>
+	</div>
+	<div class="footer">
+		<img src="bottomlogo.png" alt="bottomlogo" width="auto" height="160px">
+		<div class="footer-text">
+			<p> 哈哈你找不到我地址:台東大學知本學院<br><br>
+				哈哈你打不通我電話:089318855<br><br>
+				系統問題聯絡電話：089318855<br><br>
+				系統問題聯絡信箱：110111XX@gm.nttu.edu.tw
+			</p>
+		</div>
+	</div>
+	</body>
+</html>
