@@ -1,0 +1,130 @@
+:root{
+    --bg: #5f69ad;
+    --text: #e7e8ee;
+    --x: #ff6b6b;
+    --o: #4dd0e1;
+    --win: #ffe066;
+}
+
+*{ 
+    box-sizing:border-box;
+}
+
+html,body{
+    height:100%;
+}
+
+body{
+    margin:0;
+    font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    display:grid;
+    place-items:center;
+    padding:24px;
+}
+
+.container{
+    width: min(720px, 96%);
+    text-align:center;
+}
+
+h1{
+    margin:0 0 16px 0;
+    font-size:24px;
+}
+
+.status{
+    margin-bottom:12px;
+}
+
+.board{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:12px;
+    background: linear-gradient(180deg, rgba(93, 156, 156, 0.87), rgb(184, 33, 33));
+    padding:12px;
+    border-radius:14px;
+    width:min(560px, 92%);
+    aspect-ratio:1/1;
+}
+
+.cell{
+    border-radius:10px;
+    background:linear-gradient(180deg,#464b94,#3d4175);
+    border:1px solid rgba(189, 131, 131, 0.03);
+    font-size:48px;
+    font-weight:800;
+    display:grid;
+    place-items:center;
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    transition: none; /* 移除任何 transition */
+    outline: none; /* 移除點擊時邊框 */
+}
+.cell:focus,
+.cell:active {
+    transform: none; /* 不放大 */
+    outline: none;   /* 不顯示邊框 */
+}
+
+.cell.x{ 
+    color:var(--x); 
+}
+
+.cell.o{ 
+    color:var(--o); 
+}
+
+.cell.win{
+    background:var(--win);
+    color:#a76464;
+}
+
+.scoreboard{
+    margin-top:16px;
+    text-align:left;
+    display:inline-block;
+}
+
+.scoreboard h2{
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+.controls{
+    margin-top:12px;
+}
+
+button{
+    padding:8px 12px;
+    border-radius:10px;
+    border:0;
+    background:#5e659c;
+    color:var(--text);
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.controls{
+    margin-top:12px;
+}
+
+button{
+    padding:8px 12px;
+    border-radius:10px;
+    border:0;
+    background:#238059;
+    color:var(--text);
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
