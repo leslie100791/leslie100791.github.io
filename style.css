@@ -1,0 +1,95 @@
+body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+    margin: 0;
+    padding: 40px 0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#status {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* 棋盤區塊 */
+.board {
+    width: 320px;
+    height: 320px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* 格子外觀 */
+.cell {
+    background-color: white;
+    border-radius: 16px;
+    border: 3px solid #cfcfcf;
+    font-size: 2.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+
+    /* 柔和浮起效果 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06),
+                0 1px 3px rgba(0,0,0,0.08);
+
+    transition: transform 0.18s ease, background-color 0.25s ease;
+}
+
+/* 滑過效果 */
+.cell:hover {
+    background-color: #f3f3f3;
+    transform: translateY(-3px);
+}
+
+/* 下子動畫：縮放彈跳 */
+.cell.played {
+    animation: pop 0.22s ease-out;
+}
+
+@keyframes pop {
+    0%   { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 勝利線亮光效果 */
+.cell.win {
+    background: #fff7c2 !important;
+    border-color: #ffcc33 !important;
+    animation: glow 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px #ffe07a; }
+    to   { box-shadow: 0 0 20px #ffcc33; }
+}
+
+/* 重置按鈕 */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #4a90e2;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #357ac8;
+}
