@@ -1,3 +1,4 @@
+/* 基本重置 */
 body {
     font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
     background: #2c3e50;
@@ -7,14 +8,18 @@ body {
     min-height: 100vh;
     margin: 0;
     color: #ecf0f1;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .game-container {
     text-align: center;
     background: #34495e;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 480px; /* 電腦端最大寬度 */
 }
 
 .status-box {
@@ -22,29 +27,33 @@ body {
 }
 
 .status {
-    font-size: 1.2em;
-    padding: 10px;
+    font-size: 1.1em;
+    padding: 8px;
     background: rgba(0,0,0,0.3);
     border-radius: 8px;
     margin-bottom: 5px;
 }
 
-/* 棋盤核心樣式 */
+/* 核心棋盤自適應：寬度隨螢幕縮放 */
 .board-wrapper {
     position: relative;
-    width: 450px;
-    height: 450px;
-    background: #deb887; /* 木色 */
-    margin: 20px auto;
+    width: 92vw; /* 手機端佔寬度 92% */
+    height: 92vw;
+    max-width: 450px; /* 電腦端最大 450px */
+    max-height: 450px;
+    background: #deb887;
+    margin: 15px auto;
     border: 2px solid #8b4513;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* 繪製網格線 */
+/* 網格層使用百分比定位 */
 .grid-layer {
     position: absolute;
-    top: 25px; left: 25px;
-    right: 25px; bottom: 25px;
+    top: 5.55%; 
+    left: 5.55%;
+    right: 5.55%; 
+    bottom: 5.55%;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -59,14 +68,16 @@ body {
 .piece-layer {
     position: absolute;
     top: 0; left: 0;
+    width: 100%;
+    height: 100%;
     display: grid;
-    grid-template-columns: repeat(9, 50px);
-    grid-template-rows: repeat(9, 50px);
+    grid-template-columns: repeat(9, 11.111%);
+    grid-template-rows: repeat(9, 11.111%);
 }
 
 .cell {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,10 +85,10 @@ body {
     z-index: 10;
 }
 
-/* 棋子外觀 */
+/* 棋子外觀隨格子縮放 */
 .stone {
-    width: 44px;
-    height: 44px;
+    width: 88%;
+    height: 88%;
     border-radius: 50%;
     transition: transform 0.1s;
 }
@@ -85,22 +96,45 @@ body {
 .black { background: radial-gradient(circle at 30% 30%, #444, #000); box-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
 .white { background: radial-gradient(circle at 30% 30%, #fff, #ccc); box-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
 
+/* 最後一手標記 */
 .last-move::after {
     content: '';
-    width: 10px; height: 10px;
+    width: 25%;
+    height: 25%;
     background: #e74c3c;
     border-radius: 50%;
 }
 
+/* 按鈕區塊自動換行 */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
 .controls button {
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
     border: none;
     font-weight: bold;
+    flex: 1 1 80px; /* 在手機上會平均分配寬度 */
+    background: #ecf0f1;
+    color: #2c3e50;
+    transition: background 0.2s;
 }
 
-.pass-btn { background: #f39c12; color: white; }
-.score { display: flex; justify-content: space-around; margin-top: 15px; }
+.controls button:active { transform: scale(0.95); }
+.pass-btn { background: #f39c12 !important; color: white !important; }
 
+.score { 
+    display: flex; 
+    justify-content: space-around; 
+    margin-top: 15px; 
+    font-weight: bold;
+    background: rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
