@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <title>1115079-HW09</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>XO 對電腦棋</h1>
-        <div id="status">玩家 (X) 先手</div>
-        <div id="board" class="board"></div>
-        <div class="controls">
-        <button onclick="resetGame()">重開一局</button>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1115079-FinalTerm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎯 九路圍棋</h1>
+        <div class="status-box">
+            <div class="status" id="status">⚫黑棋先手</div>
+            <div id="passInfo">連續讓子: <span id="passCount">0</span>/2</div>
         </div>
-        <script src="script.js"></script>
-    </body>
-</html>
 
+        <div class="board-wrapper">
+            <div id="board-grid" class="grid-layer"></div>
+            <div id="board" class="piece-layer"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="game.undoMove()" id="undoBtn">悔棋</button>
+            <button onclick="newGame()">新局</button>
+            <button class="pass-btn" onclick="game.pass()" id="passBtn">讓子</button>
+            <button onclick="toggleAI()" id="aiBtn">AI: 開</button>
+        </div>
+
+        <div class="score">
+            <div class="black-score">黑棋: <span id="blackScore">0</span></div>
+            <div class="white-score">白棋: <span id="whiteScore">0</span> (+3.75)</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

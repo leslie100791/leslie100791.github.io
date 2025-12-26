@@ -1,95 +1,106 @@
 body {
-    font-family: "Microsoft JhengHei", sans-serif;
-    text-align: center;
-    background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
-    margin: 0;
-    padding: 40px 0;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 28px;
-    font-weight: 600;
-}
-
-#status {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-/* 棋盤區塊 */
-.board {
-    width: 320px;
-    height: 320px;
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 8px;
-}
-
-/* 格子外觀 */
-.cell {
-    background-color: white;
-    border-radius: 16px;
-    border: 3px solid #cfcfcf;
-    font-size: 2.6em;
+    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background: #2c3e50;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.game-container {
+    text-align: center;
+    background: #34495e;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.status-box {
+    margin-bottom: 15px;
+}
+
+.status {
+    font-size: 1.2em;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+/* 棋盤核心樣式 */
+.board-wrapper {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background: #deb887; /* 木色 */
+    margin: 20px auto;
+    border: 2px solid #8b4513;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* 繪製網格線 */
+.grid-layer {
+    position: absolute;
+    top: 25px; left: 25px;
+    right: 25px; bottom: 25px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    pointer-events: none;
+}
+
+.grid-layer div {
+    border: 1px solid #000;
+}
+
+/* 棋子落點層 */
+.piece-layer {
+    position: absolute;
+    top: 0; left: 0;
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    user-select: none;
-
-    /* 柔和浮起效果 */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06),
-                0 1px 3px rgba(0,0,0,0.08);
-
-    transition: transform 0.18s ease, background-color 0.25s ease;
+    z-index: 10;
 }
 
-/* 滑過效果 */
-.cell:hover {
-    background-color: #f3f3f3;
-    transform: translateY(-3px);
+/* 棋子外觀 */
+.stone {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: transform 0.1s;
 }
 
-/* 下子動畫：縮放彈跳 */
-.cell.played {
-    animation: pop 0.22s ease-out;
+.black { background: radial-gradient(circle at 30% 30%, #444, #000); box-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+.white { background: radial-gradient(circle at 30% 30%, #fff, #ccc); box-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
+
+.last-move::after {
+    content: '';
+    width: 10px; height: 10px;
+    background: #e74c3c;
+    border-radius: 50%;
 }
 
-@keyframes pop {
-    0%   { transform: scale(0.3); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* 勝利線亮光效果 */
-.cell.win {
-    background: #fff7c2 !important;
-    border-color: #ffcc33 !important;
-    animation: glow 0.6s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from { box-shadow: 0 0 10px #ffe07a; }
-    to   { box-shadow: 0 0 20px #ffcc33; }
-}
-
-/* 重置按鈕 */
-button {
+.controls button {
     padding: 10px 20px;
-    border: none;
-    border-radius: 12px;
-    background: #4a90e2;
-    color: white;
+    margin: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 15px;
-    transition: 0.2s;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
 }
 
-button:hover {
-    background: #357ac8;
-}
+.pass-btn { background: #f39c12; color: white; }
+.score { display: flex; justify-content: space-around; margin-top: 15px; }
+
